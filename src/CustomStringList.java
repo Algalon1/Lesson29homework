@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class CustomStringList {
     public String[] list;
 
@@ -12,5 +14,9 @@ public class CustomStringList {
             }
         }
         return false;
+    }
+
+    public boolean check(String[] arrayOfString){
+        return Arrays.equals(arrayOfString,this.list);
     }
 }
