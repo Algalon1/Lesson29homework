@@ -7,54 +7,55 @@ public class CustomStringList {
         this.list = list;
     }
 
-    public boolean check(String string){
-        for (String elements: this.list ) {
-            if (string.equals(elements)){
+    private boolean check(String string) {
+        for (String elements : this.list) {
+            if (string.equals(elements)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean check(String[] arrayOfString){
-        return Arrays.equals(arrayOfString,this.list);
+    private boolean check(String[] arrayOfString) {
+        return Arrays.equals(arrayOfString, this.list);
     }
 
-    public String longestWord(){
+    public String longestWord() {
         String longestWord = this.list[0];
-        for (String elements:this.list) {
-            if (elements.length()>longestWord.length()){
+        for (String elements : this.list) {
+            if (elements.length() > longestWord.length()) {
                 longestWord = elements;
             }
         }
         return longestWord;
     }
 
-    public void add(String string){
-        String[] newArray = new String[this.list.length+1];
+    public void add(String string) {
+        String[] newArray = new String[this.list.length + 1];
 
-        System.arraycopy(this.list,0,newArray,0,this.list.length);
+        System.arraycopy(this.list, 0, newArray, 0, this.list.length);
 
-        newArray[newArray.length-1] = string;
+        newArray[newArray.length - 1] = string;
 
         this.list = newArray;
-        System.out.println(Arrays.toString(this.list));
     }
 
-    public void addIfNotExists(String string){
-        for (String elements: this.list){
-            if (string.equals(elements)){
-                System.out.println("Строка "+string+" в массиве уже есть");
-            }else {
-                String[] newArray = new String[this.list.length+1];
+    public void addIfNotExists(String string) {
+        if (check(string)) {
+            System.out.println("String " + string + " is already present in the list");
+        } else {
+            String[] newArray = new String[this.list.length + 1];
 
-                System.arraycopy(this.list,0,newArray,0,this.list.length);
+            System.arraycopy(this.list, 0, newArray, 0, this.list.length);
 
-                newArray[newArray.length-1] = string;
+            newArray[newArray.length - 1] = string;
 
-                this.list = newArray;
-                System.out.println(Arrays.toString(this.list));
-            }
+            this.list = newArray;
         }
+    }
+
+    @Override
+    public String toString(){
+        return Arrays.toString(this.list);
     }
 }
