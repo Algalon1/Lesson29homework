@@ -41,4 +41,20 @@ public class CustomStringList {
         System.out.println(Arrays.toString(this.list));
     }
 
+    public void addIfNotExists(String string){
+        for (String elements: this.list){
+            if (string.equals(elements)){
+                System.out.println("Строка "+string+" в массиве уже есть");
+            }else {
+                String[] newArray = new String[this.list.length+1];
+
+                System.arraycopy(this.list,0,newArray,0,this.list.length);
+
+                newArray[newArray.length-1] = string;
+
+                this.list = newArray;
+                System.out.println(Arrays.toString(this.list));
+            }
+        }
+    }
 }
