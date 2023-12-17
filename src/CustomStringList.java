@@ -29,4 +29,16 @@ public class CustomStringList {
         }
         return longestWord;
     }
+
+    public void add(String string){
+        String[] newArray = new String[this.list.length+1];
+
+        System.arraycopy(this.list,0,newArray,0,this.list.length);
+
+        newArray[newArray.length-1] = string;
+
+        this.list = newArray;
+        System.out.println(Arrays.toString(this.list));
+    }
+
 }
