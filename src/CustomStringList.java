@@ -19,4 +19,14 @@ public class CustomStringList {
     public boolean check(String[] arrayOfString){
         return Arrays.equals(arrayOfString,this.list);
     }
+
+    public String longestWord(){
+        String longestWord = this.list[0];
+        for (String elements:this.list) {
+            if (elements.length()>longestWord.length()){
+                longestWord = elements;
+            }
+        }
+        return longestWord;
+    }
 }
