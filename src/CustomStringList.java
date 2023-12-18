@@ -44,13 +44,7 @@ public class CustomStringList {
         if (check(string)) {
             System.out.println("String " + string + " is already present in the list");
         } else {
-            String[] newArray = new String[this.list.length + 1];
-
-            System.arraycopy(this.list, 0, newArray, 0, this.list.length);
-
-            newArray[newArray.length - 1] = string;
-
-            this.list = newArray;
+            add(string);
         }
     }
 
