@@ -109,28 +109,100 @@ public class CustomList {
     }
 
     public void removeByIndex(int index) {
-        if (index>-1 && index<this.list.length){
+        if (index > -1 && index < this.list.length) {
             for (int i = 0; i < this.list.length; i++) {
                 if (index == i) {
                     removeLeft(this.list[i]);
                 }
             }
-        }else {
+        } else {
             System.out.println("Данного числа нет в массиве");
         }
     }
 
     public void removeAllByIndex(int index) {
-        if (index>-1 && index<this.list.length){
+        if (index > -1 && index < this.list.length) {
             for (int i = 0; i < this.list.length; i++) {
                 if (index == i) {
                     removeAll(this.list[i]);
                 }
             }
-        }else {
+        } else {
             System.out.println("Данного числа нет в массиве");
         }
     }
+
+    public void reverse() {
+        for (int i = 0; i < this.list.length / 2; i++) {
+            swap(i,this.list.length - 1 - i);
+        }
+    }
+
+    public void bubbleSort() {
+        for (int i = 0; i < this.list.length; i++) {
+            for (int j = 0; j < this.list.length - 1 - i; j++) {
+                if (this.list[j] > this.list[j + 1]) {
+                    swap(j,j+1);
+                }
+            }
+        }
+    }
+
+    public void selectionSort(){
+        for (int i = 0; i < this.list.length; i++) {
+            int max = this.list[0];
+            int maxIndex = 0;
+            for (int j = 0; j < this.list.length - i; j++) {
+                if (this.list[j]>max){
+                    max=this.list[j];
+                    maxIndex = j;
+                }
+            }
+            swap(maxIndex,this.list.length -1 - i);
+        }
+    }
+    public void selectionSort1() {
+        for (int i = 0; i < this.list.length - 1; i++) {
+            int maxIndex = i;
+            for (int j = i + 1; j < this.list.length; j++) {
+                if (this.list[j] > this.list[maxIndex]) {
+                    maxIndex = j;
+                }
+            }
+            swap(maxIndex, i);
+        }
+    }
+
+    private void swap(int index1, int index2){
+        int temp = this.list[index1];
+        this.list[index1] = this.list[index2];
+        this.list[index2] = temp;
+    }
+
+
+
+    public void bubbleSort(boolean desc) {
+        if (desc){
+            for (int i = 0; i < this.list.length; i++) {
+                for (int j = 0; j < this.list.length - 1 - i; j++) {
+                    if (this.list[j+1]>this.list[j]){
+                        swap(j+1,j);
+                    }
+                }
+            }
+        }else {
+            for (int i = 0; i < this.list.length; i++) {
+                for (int j = 0; j < this.list.length - 1 - i; j++) {
+                    if (this.list[j] > this.list[j + 1]) {
+                        swap(j,j+1);
+                    }
+                }
+            }
+        }
+    }
+
+
+
 
 
 
